@@ -22,11 +22,11 @@
 
     <dependencies>
         <!-- 嵌入式tomcat相关jar将被放入到WEB-INF\lib-provided下 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
         <!--Spring Boot依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
