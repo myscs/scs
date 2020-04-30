@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.TradingVolumeMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.TradingVolume">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ci_no" jdbcType="CHAR" property="ciNo" />
+    <result column="statistical_date" jdbcType="CHAR" property="statisticalDate" />
+    <result column="ci_name" jdbcType="VARCHAR" property="ciName" />
+    <result column="open_date" jdbcType="DATE" property="openDate" />
+    <result column="trading_volume" jdbcType="DECIMAL" property="tradingVolume" />
+    <result column="total_assets" jdbcType="DECIMAL" property="totalAssets" />
+    <result column="stock_value" jdbcType="DECIMAL" property="stockValue" />
+    <result column="fund_balance" jdbcType="DECIMAL" property="fundBalance" />
+    <result column="net_commission" jdbcType="DECIMAL" property="netCommission" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="agent_name" jdbcType="VARCHAR" property="agentName" />
+    <result column="ts" jdbcType="TIMESTAMP" property="ts" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.WxUserMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.WxUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="CHAR" property="openId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="pass_word" jdbcType="VARCHAR" property="passWord" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="ctime" jdbcType="DATE" property="ctime" />
+    <result column="tel_num" jdbcType="CHAR" property="telNum" />
+    <result column="real_name" jdbcType="CHAR" property="realName" />
+    <result column="commission_rate" jdbcType="DECIMAL" property="commissionRate" />
+    <result column="valid_amt" jdbcType="DECIMAL" property="validAmt" />
+    <result column="ts" jdbcType="TIMESTAMP" property="ts" />
+  </resultMap>
+</mapper>

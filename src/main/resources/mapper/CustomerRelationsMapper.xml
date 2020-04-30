@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.CustomerRelationsMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.CustomerRelations">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ci_no" jdbcType="CHAR" property="ciNo" />
+    <result column="agent_id" jdbcType="INTEGER" property="agentId" />
+    <result column="ci_name" jdbcType="VARCHAR" property="ciName" />
+    <result column="open_date" jdbcType="DATE" property="openDate" />
+    <result column="total_commission" jdbcType="DECIMAL" property="totalCommission" />
+    <result column="month_commission" jdbcType="DECIMAL" property="monthCommission" />
+    <result column="statistical_date" jdbcType="CHAR" property="statisticalDate" />
+    <result column="valid_flag" jdbcType="CHAR" property="validFlag" />
+    <result column="valid_flag_date" jdbcType="DATE" property="validFlagDate" />
+    <result column="ts" jdbcType="TIMESTAMP" property="ts" />
+  </resultMap>
+</mapper>
