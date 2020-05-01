@@ -7,4 +7,6 @@ import com.company.project.core.Result;
 public interface TradingVolumeManageService {
 
     Result qryTradingVolumeList(QryTradingVolumeListInDto inDto);
+
+    Result addCustomerRelations(AddCustomerRelationsInDto inDto);
 }

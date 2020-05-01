@@ -1,4 +1,5 @@
 package com.company.project.web.function.admin;
+import com.company.project.api.admin.AddCustomerRelationsInDto;
 import com.company.project.api.admin.QryTradingVolumeListInDto;
 import com.company.project.api.admin.QryUserInfoListInDto;
 import com.company.project.core.Result;
@@ -28,4 +29,10 @@ public class TradingVolumeManageController {
     public Result qryTradingVolumeList(@CurrentUser WxUser wxUser, @RequestBody QryTradingVolumeListInDto inDto) {
        return tradingVolumeManageService.qryTradingVolumeList(inDto);
     }
+
+    @PostMapping("/addCustomerRelations")
+    public Result addCustomerRelations(@CurrentUser WxUser wxUser, @RequestBody AddCustomerRelationsInDto inDto) {
+        return tradingVolumeManageService.addCustomerRelations(inDto);
+    }
+
 }

@@ -24,6 +24,8 @@ import tk.mybatis.mapper.entity.Condition;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,6 +65,57 @@ public class TradingVolumeManageServiceImpl implements TradingVolumeManageServic
 
         PageInfo pageInfo = new PageInfo(tradingVolumeList);
         return ResultGenerator.genSuccessResult(pageInfo);
+    }
+
+    @Override
+    public Result addCustomerRelations(AddCustomerRelationsInDto inDto) {
+
+        checkAddCustomerRelationsInput(inDto);
+        CustomerRelations customerRelations=new CustomerRelations();
+        WxUser wxUser=wxUserService.findBy("realName",inDto.getAgentName());
+        if(wxUser !=null){
+            customerRelations=new CustomerRelations();
+            customerRelations.setCiNo(inDto.getCiNo());
+            customerRelations.setAgentId(wxUser.getId());
+            customerRelations.setCiName(inDto.getCiName());
+            customerRelations.setOpenDate(inDto.getOpenDate());
+
+            BigDecimal monthCommission=inDto.getNetCommission().multiply(wxUser.getCommissionRate());
+            BigDecimal totalCommission=monthCommission;
+            customerRelations.setTotalCommission(monthCommission);
+            customerRelations.setMonthCommission(totalCommission);
+            customerRelations.setValidFlag("N");
+            customerRelations.setStatisticalDate(inDto.getStatisticalDate());
+            customerRelationsService.save(customerRelations);
+
+            TradingVolume tradingVolume=new TradingVolume();
+            tradingVolume.setId(inDto.getId());
+            tradingVolume.setStatus("N");
+            tradingVolume.setTs(new Date());
+            tradingVolumeService.update(tradingVolume);
+        }else{
+            throw new ServiceException("经纪人不存在，请先新增");
+        }
+        return new Result();
+    }
+
+    private void checkAddCustomerRelationsInput(AddCustomerRelationsInDto inDto) {
+        TradingVolume tradingVolume =tradingVolumeService.findById(inDto.getId());
+        if(tradingVolume == null){
+            throw new ServiceException("记录不存在");
+        }
+        if(!StringUtils.equals(tradingVolume.getStatus() ,"W")){
+            throw new ServiceException("记录状态不为W");
+        }
+
+        CustomerRelations customerRelations= customerRelationsService.findBy("ciNo",inDto.getCiNo());
+        if(customerRelations  != null){
+            throw new ServiceException("客户已被归属");
+        }
+        if(StringUtils.isBlank(inDto.getAgentName())){
+            throw new ServiceException("客户经纪人必须输入");
+        }
+
     }
 
     private void setAgentName(List<TradingVolume> tradingVolumeList) {
