@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 * Created by CodeGenerator on 2020/03/29.
 */
 @RestController
-@RequestMapping("userinfo")
+@RequestMapping("")
 public class UserInfoController {
     @Resource
     private UserInfoService userInfoService;

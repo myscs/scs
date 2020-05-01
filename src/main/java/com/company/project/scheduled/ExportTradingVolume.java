@@ -63,6 +63,9 @@ public class ExportTradingVolume {
         logger.info(DtUtils.getDateYYMMDDHHMMSSS()+" >>exportTradingVolume执行开始....");
         File file = new File(excelPathSource);
         File[] fileList = file.listFiles();
+        if(fileList ==null){
+            return;
+        }
         for (File excelFile:fileList) {
             String fileName=excelFile.getName();
             if(fileName.endsWith("xls") || fileName.endsWith("xlsx")){
